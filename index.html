@@ -349,10 +349,6 @@
             .navbar-collapse { margin-top: 0.5rem; padding: 1rem; border-radius: 0.5rem; }
             #home h1 { font-size: 3rem !important; }
             #home .lead { font-size: 1.1rem !important; }
-            /* Carousel height adjustment for mobile */
-            #aboutCarousel .carousel-inner { height: 250px !important; }
-            #aboutCarousel img { height: 250px !important; object-fit: cover !important; width: 100% !important; }
-            .card-img-top { height: 150px !important; object-fit: cover !important; }
         }
         @media (max-width: 576px) {
             .display-4 { font-size: 2rem; } .lead { font-size: 1rem; }
@@ -368,23 +364,12 @@
             .hero-buttons { gap: 0.75rem; }
             .navbar-brand img { max-height: 45px !important; max-width: 120px !important; }
             #home h1 { font-size: 2.2rem !important; }
-            /* Further carousel adjustment for small screens */
-            #aboutCarousel .carousel-inner { height: 200px !important; }
-            #aboutCarousel img { height: 200px !important; object-fit: cover !important; }
-            .card-img-top { height: 120px !important; object-fit: cover !important; }
         }
         @media (min-width: 1200px) {
             .hero-buttons { gap: 1.5rem; }
             .hero-buttons .btn { min-width: 220px; max-width: 280px; padding-left: 2rem; padding-right: 2rem; }
             #home h1 { font-size: 5.5rem !important; }
             #home .lead { font-size: 1.5rem !important; }
-        }
-
-        /* Hero Background Slideshow Images - Ensure Cover Fit */
-        #bg-slideshow .slide {
-            object-fit: cover !important;
-            width: 100% !important;
-            height: 100% !important;
         }
     </style>
 </head>
@@ -433,14 +418,14 @@ style="min-height: 110vh; overflow: hidden;">
 
   <!-- Background Slideshow -->
   <div id="bg-slideshow" class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 0;">
-    <img class="slide" src="/Assets/beauty/anand-s-CtqSoMZY7c8-unsplash.jpg" alt="Kerala Landscape 1">
-    <img class="slide" src="/Assets/beauty/gaurav-kumar-33Z4FsBTiAY-unsplash.jpg" alt="Kerala Landscape 2">
-    <img class="slide" src="/Assets/beauty/manyu-varma-ef3A5EDR7Jk-unsplash.jpg" alt="Kerala Landscape 3">
-    <img class="slide" src="/Assets/beauty/philip-liju-srvtMQSWDhE-unsplash.jpg" alt="Kerala Landscape 4">
-    <img class="slide" src="/Assets/beauty/praswin-prakashan-SVG2gzTIudU-unsplash.jpg" alt="Kerala Landscape 5">
-    <img class="slide" src="/Assets/beauty/sourav-satpati-eZYBbfu7v8A-unsplash.jpg" alt="Kerala Landscape 6">
+    <img class="slide" src="/Assets//beauty/anand-s-CtqSoMZY7c8-unsplash.jpg" ></img>
+    <img class="slide" src="/Assets//beauty/gaurav-kumar-33Z4FsBTiAY-unsplash.jpg"></img>
+    <img class="slide" src="/Assets//beauty/manyu-varma-ef3A5EDR7Jk-unsplash.jpg"></img>
+    <img class="slide" src="/Assets//beauty/philip-liju-srvtMQSWDhE-unsplash.jpg"></img>
+    <img class="slide" src="/Assets//beauty/praswin-prakashan-SVG2gzTIudU-unsplash.jpg"></img>
+    <img class="slide" src="/Assets//beauty/sourav-satpati-eZYBbfu7v8A-unsplash.jpg"></img>
     <!-- <img class="slide" src="/Assets//beauty/vineet-garg-1-CatY4Z6yo-unsplash.jpg"></img> -->
-    <img class="slide" src="/Assets/beauty/sreehari-devadas-nZu8lzfVFw4-unsplash.jpg" alt="Kerala Landscape 7">
+    <img class="slide" src="/Assets//beauty/sreehari-devadas-nZu8lzfVFw4-unsplash.jpg"></img>
   </div>
 
   <!-- Dark Overlay -->
@@ -514,7 +499,6 @@ style="min-height: 110vh; overflow: hidden;">
       slide.style.width = "100%";
       slide.style.height = "100%";
       slide.style.transition = "opacity 1s ease-in-out";
-      slide.style.objectFit = "cover";
       slide.style.opacity = index === 0 ? 1 : 0;
   });
 
