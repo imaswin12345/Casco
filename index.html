@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASCO Tours and Travels - Discover Kerala Adventures</title>
+    <meta name="description" content="CASCO Tours and Travels - Your trusted travel partner in Kerala. Explore Kerala's finest destinations with expertly curated itineraries and comfortable transportation.">
+    <meta name="keywords" content="Kerala tours, travel agency Kerala, Munnar tours, Alleppey backwaters, Kerala tourism, CASCO tours">
+    <title>CASCO Tours and Travels - Discover Kerala's Hidden Beauty</title>
     <link rel="icon" type="image/png" href="/Assets/CASCO-10-16-2025-removebg-preview.png">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- External Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -23,7 +25,7 @@
                     colors: {
                         'primary': '#00a627',
                         'primary-dark': '#00781c',
-                        'primary-light': '#1b9f00',
+                        'primary-light': '#e8f5e9',
                     },
                     fontFamily: {
                         'outfit': ['Outfit', 'sans-serif'],
@@ -32,635 +34,1235 @@
             }
         }
     </script>
-    
+
     <style>
-        body { font-family: 'Outfit', sans-serif; }
-        
+        body {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 400;
+        }
+
+        /* Design System - Typography */
+        h1 { font-weight: 300; letter-spacing: -0.5px; line-height: 1.2; }
+        h2 { font-weight: 600; letter-spacing: -0.5px; line-height: 1.2; }
+        h3, h4, h5 { font-weight: 600; line-height: 1.2; }
+        p { line-height: 1.7; }
+
         /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         @keyframes pulse-whatsapp {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
-        
-        .animate-fadeInDown { animation: fadeInDown 0.8s ease forwards; }
+
+        @keyframes slideDown {
+            from { max-height: 0; opacity: 0; }
+            to { max-height: 500px; opacity: 1; }
+        }
+
+        /* Animation Classes */
         .animate-fadeInUp { animation: fadeInUp 0.6s ease forwards; }
         .animate-pulse-whatsapp { animation: pulse-whatsapp 2s infinite; }
-        .animate-pulse-badge { animation: pulse 2s infinite; }
-        
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1s ease-in-out; }
-        
-        /* Hover Effects */
-        .hover-lift { transition: all 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-5px); }
-        
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 25px rgba(0,123,255,0.15); }
-        
-        .img-zoom { transition: transform 0.3s ease; }
-        .card-hover:hover .img-zoom { transform: scale(1.05); }
-        
+        .animate-bounce { animation: bounce 2s infinite; }
+
+        /* Hero Slideshow */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 300ms ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+        .card-hover:hover .img-zoom {
+            transform: scale(1.05);
+        }
+        .img-zoom {
+            transition: transform 400ms ease;
+        }
+
+        /* Navbar Scroll Shadow */
+        .nav-scrolled {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+        }
+        .lightbox-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .lightbox-controls {
+            position: absolute;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: all 300ms ease;
+            user-select: none;
+        }
+        .lightbox-controls:hover {
+            color: #00a627;
+            transform: scale(1.1);
+        }
+        .lightbox-close {
+            top: 20px;
+            right: 30px;
+        }
+        .lightbox-prev {
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .lightbox-next {
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+        }
+
         /* WhatsApp Tooltip */
-        .whatsapp-float::after {
-            content: "Chat on WhatsApp";
+        .whatsapp-tooltip {
             position: absolute;
             right: 80px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.8);
             color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 0.7rem;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
             white-space: nowrap;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 300ms ease;
             pointer-events: none;
         }
-        .whatsapp-float:hover::after { opacity: 1; }
-        
-        /* Trust Indicators Animation */
-        .trust-item { opacity: 0; animation: fadeInUp 0.6s ease forwards; }
-        .trust-item:nth-child(1) { animation-delay: 0.1s; }
-        .trust-item:nth-child(2) { animation-delay: 0.2s; }
-        .trust-item:nth-child(3) { animation-delay: 0.3s; }
-        .trust-item:nth-child(4) { animation-delay: 0.4s; }
-        .trust-item:nth-child(5) { animation-delay: 0.5s; }
-        
-        /* Navbar Collapse */
-        .navbar-collapse { transition: height 0.15s ease-in-out !important; }
-        
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* Mobile Menu Animation */
+        #mobileMenu.show {
+            animation: slideDown 300ms ease-out forwards;
+        }
+
         /* Section Visibility */
-        section { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-        section.visible { opacity: 1; transform: translateY(0); }
-        
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 800ms ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        /* Hero Full Viewport Fix */
+        #home {
+            height: 100vh !important;
+            padding-top: 64px !important;
+            overflow: hidden !important;
+        }
+        #home > * {
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 overflow-x-hidden">
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/918921363734?text=Hello%20CASCO%20Tours%20and%20Travels!%20I%20would%20like%20to%20inquire%20about%20your%20services." 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="whatsapp-float fixed right-5 bottom-5 bg-gradient-to-br from-green-500 to-green-600 text-white w-15 h-15 rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 hover:-translate-y-1 z-50 animate-pulse-whatsapp"
-       title="Contact us on WhatsApp">
-        <i class="fab fa-whatsapp ml-5 mr-5  mt-4 mb-4 text-3xl"></i>
+    <a href="https://wa.me/918921363734?text=Hello%20CASCO%20Tours!%20I'd%20like%20to%20inquire%20about%20your%20services."
+       target="_blank"
+       rel="noopener noreferrer"
+       class="whatsapp-float fixed right-6 bottom-6 bg-gradient-to-br from-green-500 to-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 z-50 animate-pulse-whatsapp"
+       title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="whatsapp-tooltip">Chat with us!</span>
     </a>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo -->
-                <a href="#home" class="flex items-center flex-shrink-0 py-2">
-                    <img src="/Assets/a85cd421-c477-436d-879c-39c2f3a00fbe_removalai_preview.png" 
-                         alt="CASCO Logo" 
-                         class="h-14 w-auto sm:h-16 object-contain transition-transform hover:scale-105">
-                </a>
+<!-- ==================== NAVBAR + HERO SECTION ==================== -->
+<nav id="navbar" class="fixed w-full top-0 left-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2">
+      <h1 class="text-2xl font-bold text-green-600">CASCO</h1>
+      <span class="text-gray-100 font-medium hidden sm:block">Tours & Travels</span>
+    </div>
 
-                <!-- Desktop Navigation Links -->
-                <div class="hidden lg:flex items-center gap-1 xl:gap-3">
-                    <a href="#home" class="text-gray-600 font-medium px-3 py-2 rounded-full hover:text-primary hover:bg-gray-50 transition-all duration-300 text-sm">
-                        <i class="fas fa-home mr-1"></i> Home
-                    </a>
-                    <a href="#trips" class="text-gray-600 font-medium px-3 py-2 rounded-full hover:text-primary hover:bg-gray-50 transition-all duration-300 text-sm">
-                        <i class="fas fa-map mr-1"></i> Trips
-                    </a>
-                    <a href="#vehicles" class="text-gray-600 font-medium px-3 py-2 rounded-full hover:text-primary hover:bg-gray-50 transition-all duration-300 text-sm">
-                        <i class="fas fa-bus mr-1"></i> Vehicles
-                    </a>
-                    <a href="#about" class="text-gray-600 font-medium px-3 py-2 rounded-full hover:text-primary hover:bg-gray-50 transition-all duration-300 text-sm">
-                        <i class="fas fa-info-circle mr-1"></i> About
-                    </a>
-                    <a href="#contact" class="text-gray-600 font-medium px-3 py-2 rounded-full hover:text-primary hover:bg-gray-50 transition-all duration-300 text-sm">
-                        <i class="fas fa-phone mr-1"></i> Contact
-                    </a>
-                    <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-full shadow-sm hover:bg-primary-dark hover:shadow-md transition-all duration-300 ml-2 text-sm font-semibold">
-                        Book Now
-                    </a>
-                </div>
+    <!-- Nav Links -->
+    <ul class="hidden md:flex items-center space-x-8 font-medium">
+      <li><a href="#trips" class="nav-link text-white hover:text-green-500 transition">Trips</a></li>
+      <li><a href="#fleet" class="nav-link text-white hover:text-green-500 transition">Fleet</a></li>
+      <li><a href="#gallery" class="nav-link text-white hover:text-green-500 transition">Gallery</a></li>
+      <li><a href="#about" class="nav-link text-white hover:text-green-500 transition">About</a></li>
+      <li><a href="#contact" class="nav-link text-white hover:text-green-500 transition">Contact</a></li>
+      <li>
+        <a href="https://wa.me/918921363734" target="_blank"
+           class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md shadow-md transition">
+          Book Now
+        </a>
+      </li>
+    </ul>
 
-                <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" 
-                        type="button" 
-                        onclick="toggleMenu()"
-                        aria-label="Toggle navigation">
-                    <i class="fas fa-bars text-2xl text-gray-700"></i>
-                </button>
-            </div>
+    <!-- Mobile Menu Button -->
+    <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobileMenu" class="hidden flex flex-col bg-white shadow-lg py-4">
+    <a href="#trips" class="py-2 px-6 text-gray-700 hover:bg-gray-100">Trips</a>
+    <a href="#fleet" class="py-2 px-6 text-gray-700 hover:bg-gray-100">Fleet</a>
+    <a href="#gallery" class="py-2 px-6 text-gray-700 hover:bg-gray-100">Gallery</a>
+    <a href="#about" class="py-2 px-6 text-gray-700 hover:bg-gray-100">About</a>
+    <a href="#contact" class="py-2 px-6 text-gray-700 hover:bg-gray-100">Contact</a>
+    <a href="https://wa.me/918921363734" target="_blank"
+       class="bg-green-600 hover:bg-green-700 text-white mx-6 my-2 rounded-md py-2 text-center">Book Now</a>
+  </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section id="home" class="relative h-[100vh] pt-16 flex flex-col justify-center items-center text-center text-white overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <img src="/Assets/beauty/manyu-varma-ef3A5EDR7Jk-unsplash.jpg" 
+         alt="Kerala Backwaters"
+         class="w-full h-full object-cover brightness-75">
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/30"></div>
+
+  <!-- Trust Badge -->
+  <div class="relative z-20 mb-2 sm:mb-4">
+    <div class="inline-flex items-center bg-white/15 backdrop-blur-md border border-white/30 rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium">
+      <i class="fas fa-star text-yellow-400 mr-2"></i> Trusted by 10,000+ Travelers
+    </div>
+  </div>
+
+  <!-- Main Heading -->
+  <h1 class="relative z-20 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight max-w-4xl px-4">
+    Discover Kerala's Hidden Beauty!
+  </h1>
+
+  <!-- Subtext -->
+  <p class="relative z-20 mt-2 sm:mt-4 text-base sm:text-lg md:text-xl opacity-90 max-w-2xl px-4 mx-auto">
+    Curated travel experiences across Kerala's most breathtaking destinations
+  </p>
+
+  <!-- Buttons -->
+  <div class="relative z-20 mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 px-4">
+    <a href="#trips" class="bg-white text-gray-900 px-6 py-2.5 sm:px-8 sm:py-3 rounded-md font-semibold hover:scale-105 transition shadow-lg text-sm sm:text-base">
+      <i class="fas fa-map mr-2"></i> Explore Trips
+    </a>
+    <a href="#contact" class="border border-white text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-md font-semibold hover:bg-white/15 transition text-sm sm:text-base">
+      <i class="fas fa-phone mr-2"></i> Contact
+    </a>
+  </div>
+
+  <!-- Bottom Stats -->
+  <div class="relative z-20 mt-4 flex flex-row flex-wrap justify-center gap-2 sm:gap-4 text-center px-4 w-full">
+    <div class="min-w-[70px] sm:min-w-[90px]">
+      <div class="text-2xl sm:text-3xl font-bold">10K+</div>
+      <p class="text-xs sm:text-sm opacity-80">Happy Travelers</p>
+    </div>
+    <div class="min-w-[70px] sm:min-w-[90px]">
+      <div class="text-2xl sm:text-3xl font-bold">500+</div>
+      <p class="text-xs sm:text-sm opacity-80">Tours Completed</p>
+    </div>
+    <div class="min-w-[70px] sm:min-w-[90px]">
+      <div class="text-2xl sm:text-3xl font-bold flex justify-center items-center gap-0.5">4.9<i class="fas fa-star text-yellow-400"></i></div>
+      <p class="text-xs sm:text-sm opacity-80">Average Rating</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MODERN ABOUT SECTION ==================== -->
+<section id="about" class="relative bg-gray-50 py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center px-6 md:px-12">
+
+    <!-- Image Side -->
+    <div class="relative group">
+      <img src="/Assets/WhatsApp Image 2025-10-16 at 13.26.53_a6a94255.jpg" 
+           alt="CASCO Fleet"
+           class="rounded-2xl shadow-xl w-full object-cover h-[480px] group-hover:scale-[1.02] transition-transform duration-500">
+      <div class="absolute top-5 left-5 bg-gradient-to-r from-green-600 to-emerald-500 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg">
+        Trusted Since 2020
+      </div>
+    </div>
+
+    <!-- Content Side -->
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+        Your Trusted Travel Partner in Kerala
+      </h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        CASCO Tours and Travels, based in Irumpanam, Thripunithura, has been redefining comfort and exploration across Kerala. 
+        We curate authentic travel experiences for families, groups, and corporate travelers—blending safety, comfort, and discovery.
+      </p>
+      <p class="text-gray-500 leading-relaxed mb-10">
+        Our mission is simple — to make every journey a story worth telling. 
+        With our modern fleet and expert team, we ensure your Kerala trip is seamless and unforgettable.
+      </p>
+
+      <!-- Highlights Grid -->
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="flex items-start gap-4">
+          <div class="bg-green-100 text-green-600 p-3 rounded-xl">
+            <i class="fas fa-shield-alt text-2xl"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800">Fully Licensed & Insured</h4>
+            <p class="text-sm text-gray-500">Travel with peace of mind</p>
+          </div>
         </div>
-        
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="lg:hidden hidden bg-white border-t border-gray-200 shadow-lg">
-            <div class="container mx-auto px-4 py-4 space-y-1">
-                <a href="#home" class="block text-gray-700 font-medium py-3 px-4 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors">
-                    <i class="fas fa-home mr-3 w-5"></i> Home
-                </a>
-                <a href="#trips" class="block text-gray-700 font-medium py-3 px-4 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors">
-                    <i class="fas fa-map mr-3 w-5"></i> Trips
-                </a>
-                <a href="#vehicles" class="block text-gray-700 font-medium py-3 px-4 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors">
-                    <i class="fas fa-bus mr-3 w-5"></i> Vehicles
-                </a>
-                <a href="#about" class="block text-gray-700 font-medium py-3 px-4 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors">
-                    <i class="fas fa-info-circle mr-3 w-5"></i> About
-                </a>
-                <a href="#contact" class="block text-gray-700 font-medium py-3 px-4 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors">
-                    <i class="fas fa-phone mr-3 w-5"></i> Contact
-                </a>
-                <a href="#contact" class="block bg-primary text-white font-semibold py-3 px-4 rounded-lg hover:bg-primary-dark transition-colors text-center mt-2">
-                    <i class="fas fa-calendar-check mr-2"></i> Book Now
-                </a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative flex items-center justify-center text-center text-white min-h-screen overflow-hidden pt-20">
-        <!-- Background Slideshow -->
-        <div id="bg-slideshow" class="absolute top-0 left-0 w-full h-full z-0">
-            <img class="slide" src="/Assets/beauty/anand-s-CtqSoMZY7c8-unsplash.jpg" alt="Kerala Beauty">
-            <img class="slide opacity-0" src="/Assets/beauty/gaurav-kumar-33Z4FsBTiAY-unsplash.jpg" alt="Kerala Beauty">
-            <img class="slide opacity-0" src="/Assets/beauty/manyu-varma-ef3A5EDR7Jk-unsplash.jpg" alt="Kerala Beauty">
-            <img class="slide opacity-0" src="/Assets/beauty/philip-liju-srvtMQSWDhE-unsplash.jpg" alt="Kerala Beauty">
-            <img class="slide opacity-0" src="/Assets/beauty/praswin-prakashan-SVG2gzTIudU-unsplash.jpg" alt="Kerala Beauty">
-            <img class="slide opacity-0" src="/Assets/beauty/sourav-satpati-eZYBbfu7v8A-unsplash.jpg" alt="Kerala Beauty">
-            <img class="slide opacity-0" src="/Assets/beauty/sreehari-devadas-nZu8lzfVFw4-unsplash.jpg" alt="Kerala Beauty">
+        <div class="flex items-start gap-4">
+          <div class="bg-green-100 text-green-600 p-3 rounded-xl">
+            <i class="fas fa-users text-2xl"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800">Professional Team</h4>
+            <p class="text-sm text-gray-500">Friendly drivers and travel experts</p>
+          </div>
         </div>
 
-        <!-- Dark Overlay -->
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black/55 to-black/40 z-10"></div>
-
-        <!-- Hero Content -->
-        <div class="container relative z-20 px-4">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold mb-6 animate-fadeInDown" style="letter-spacing: -0.02em; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
-                <span id="typed-text"></span>
-            </h1>
-            <p class="text-lg md:text-xl lg:text-2xl mb-6 opacity-95 max-w-2xl mx-auto animate-fadeInUp">
-                Discover handpicked destinations, curated trips, and unforgettable experiences.
-            </p>
-
-            <!-- Floating Tag -->
-            <div class="inline-block bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-6 py-3 mb-6 hover:bg-white/30 hover:-translate-y-0.5 transition-all duration-300">
-                <i class="fas fa-star mr-2"></i> Trusted by 10,000+ Happy Travellers
-            </div>
-
-            <!-- Hero Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mt-8">
-                <a href="#trips" class="bg-white/95 text-gray-800 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-white hover:scale-105 hover:-translate-y-1 transition-all duration-300">
-                    <i class="fas fa-suitcase-rolling mr-2"></i> Start Your Journey
-                </a>
-                <a href="#contact" class="border-2 border-white/80 text-white backdrop-blur-sm px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
-                    <i class="fas fa-phone mr-2"></i> Contact Us
-                </a>
-            </div>
+        <div class="flex items-start gap-4">
+          <div class="bg-green-100 text-green-600 p-3 rounded-xl">
+            <i class="fas fa-car text-2xl"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800">Modern Fleet</h4>
+            <p class="text-sm text-gray-500">Comfortable & well-maintained vehicles</p>
+          </div>
         </div>
-    </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-20 bg-gradient-to-b from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <!-- Section Heading -->
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-primary mb-4"><i class="fas fa-info-circle mr-2"></i> ABOUT CASCO TOURS & TRAVEL</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Crafting memorable journeys across Kerala since 2020 — where every route tells a story.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Image Carousel -->
-                <div class="relative">
-                    <div id="aboutCarousel" class="rounded-3xl overflow-hidden shadow-2xl h-96 lg:h-[480px]">
-                        <img src="/Assets/WhatsApp Image 2025-10-16 at 13.26.53_a6a94255.jpg" class="w-full h-full object-cover" alt="Marco Polo Bus">
-                    </div>
-                    <div class="absolute top-4 left-4 bg-primary text-white px-4 py-2 rounded-full shadow-lg">
-                        <i class="fas fa-star mr-1"></i> 5+ Years of Excellence
-                    </div>
-                </div>
-
-                <!-- About Content -->
-                <div>
-                    <span class="inline-block bg-gradient-to-r from-primary-dark to-primary-light text-white px-4 py-2 rounded-full text-sm mb-4">
-                        <i class="fas fa-calendar-alt mr-1"></i> Established in 2020
-                    </span>
-                    <h3 class="text-3xl font-semibold text-gray-800 mb-4">Your Trusted Travel Partner in Kerala</h3>
-                    <p class="text-gray-600 mb-4 text-lg leading-relaxed">CASCO Tours and Travels, based in Irumpanam, Thripunithura, is redefining comfort and exploration. For over five years, we've guided families, groups, and corporate travelers through Kerala's emerald backwaters, serene hills, and vibrant heritage.</p>
-                    <p class="text-gray-500 mb-6 leading-relaxed">Our fleet, our people, and our passion come together to ensure your journey is more than travel — it's an experience of warmth, safety, and discovery.</p>
-
-                    <!-- Why Choose Us Grid -->
-                    <div class="mb-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-heart text-red-500 text-3xl mr-2"></i>
-                            <h5 class="text-primary text-xl font-semibold">Why Choose CASCO?</h5>
-                        </div>
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <strong class="text-gray-800">Proven Expertise</strong>
-                                    <p class="text-gray-600 text-sm">5+ years, 180+ successful journeys</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-car text-blue-500 text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <strong class="text-gray-800">Modern Fleet</strong>
-                                    <p class="text-gray-600 text-sm">Clean, well-maintained vehicles</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-user-tie text-yellow-500 text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <strong class="text-gray-800">Professional Drivers</strong>
-                                    <p class="text-gray-600 text-sm">Experienced & courteous team</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-shield-alt text-primary text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <strong class="text-gray-800">Fully Licensed & Insured</strong>
-                                    <p class="text-gray-600 text-sm">Peace of mind guaranteed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="#contact" class="inline-block bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300">
-                        Discover More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
+        <div class="flex items-start gap-4">
+          <div class="bg-green-100 text-green-600 p-3 rounded-xl">
+            <i class="fas fa-clock text-2xl"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800">24/7 Support</h4>
+            <p class="text-sm text-gray-500">Always here when you need us</p>
+          </div>
         </div>
-    </section>
-
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Trips Section -->
-    <section id="trips" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-4xl font-bold text-primary mb-4"><i class="fas fa-map mr-2"></i> Our Popular Trip Plans</h2>
-            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg">Explore Kerala's most enchanting destinations with expertly curated itineraries</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Trip Card 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
-                    <div class="overflow-hidden h-52">
-                        <img src="https://theholidaysdestination.com/wp-content/uploads/2022/02/Isha-Yoga-Center.jpg" class="w-full h-full object-cover img-zoom" alt="Palani Temple">
-                    </div>
-                    <div class="p-6">
-                        <h5 class="text-xl font-bold text-gray-800 mb-2"><i class="fas fa-church mr-2"></i> Palani + Isha Yoga Center</h5>
-                        <div class="text-gray-600 mb-3"><i class="fas fa-clock mr-1"></i> 1 Day</div>
-                        <p class="text-gray-600 mb-4">Experience a spiritual and wellness journey visiting the sacred Palani Murugan Temple and the serene Isha Yoga Center.</p>
-                        <div class="text-primary font-bold text-lg mb-2">₹1,499 per person</div>
-                        <small class="text-gray-500 block mb-4">Includes: Breakfast, Lunch, Dinner, Transport</small>
-                        <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-all duration-300">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- Trip Card 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
-                    <div class="overflow-hidden h-52">
-                        <img src="https://images.unsplash.com/photo-1711192702535-eac61a78ecb0?w=800" class="w-full h-full object-cover img-zoom" alt="Munnar Hills">
-                    </div>
-                    <div class="p-6">
-                        <h5 class="text-xl font-bold text-gray-800 mb-2"><i class="fas fa-mountain mr-2"></i> Munnar Hill Retreat</h5>
-                        <div class="text-gray-600 mb-3"><i class="fas fa-clock mr-1"></i> 4 Days / 3 Nights</div>
-                        <p class="text-gray-600 mb-4">Immerse in misty tea plantations, trekking trails, and breathtaking views of God's Own Country.</p>
-                        <div class="text-primary font-bold text-lg mb-2">₹7,00 - ₹10,00 per person</div>
-                        <small class="text-gray-500 block mb-4">Includes: Stay, meals, trekking guide, plantations visit</small>
-                        <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-all duration-300">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- Trip Card 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
-                    <div class="overflow-hidden h-52">
-                        <img src="https://backpackersunited.in/_next/image?url=https%3A%2F%2Fbpu-images-v1.s3.eu-north-1.amazonaws.com%2Fuploads%2F1727159993512_Athirapally.jpg&w=3840&q=75" class="w-full h-full object-cover img-zoom" alt="Valpara">
-                    </div>
-                    <div class="p-6">
-                        <h5 class="text-xl font-bold text-gray-800 mb-2"><i class="fas fa-hiking mr-2"></i> Stranger Trip: Valpara – Malakkapara</h5>
-                        <div class="text-gray-600 mb-3"><i class="fas fa-clock mr-1"></i> 1 Day</div>
-                        <p class="text-gray-600 mb-4">Explore the beautiful hills and scenic viewpoints of Valpara – Malakkapara on this exciting day trip.</p>
-                        <div class="text-primary font-bold text-lg mb-2">₹999 per person</div>
-                        <small class="text-gray-500 block mb-4">Includes: Breakfast, Lunch, Transport</small>
-                        <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-all duration-300">Book Now</a>
-                    </div>
-                </div>
+    <section id="trips" class="py-20 lg:py-24 bg-gray-50">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-10 lg:px-16">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-3">Our Packages</div>
+                <h2 class="text-4xl lg:text-5xl text-gray-800 mb-4">Explore Kerala's Finest Destinations</h2>
+                <p class="text-base text-gray-500 max-w-2xl mx-auto">Handpicked itineraries designed for unforgettable experiences</p>
             </div>
 
-            <div class="text-center mt-12">
-                <p class="text-gray-600"><i class="fas fa-info-circle mr-2"></i> <strong>Custom packages available.</strong> Contact us for personalized itineraries tailored to your preferences and budget.</p>
+            <!-- Trip Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
+
+                <!-- Trip Card 1: Palani + Isha Yoga Center -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60">
+                        <img src="https://theholidaysdestination.com/wp-content/uploads/2022/02/Isha-Yoga-Center.jpg"
+                             alt="Palani Temple"
+                             class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-church text-primary mr-2"></i> Palani + Isha Yoga Center
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 1 Day</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Year-round</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.7</span>
+                            <span class="text-xs text-gray-400 ml-1">(85 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Experience spiritual serenity at Palani Murugan Temple and the tranquil Isha Yoga Center</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹1,499</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Palani%20%2B%20Isha%20Yoga%20Center.%20Duration:%201%20Day,%20Price:%20₹1,499.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trip Card 2: Munnar Hill Retreat -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60 relative">
+                        <img src="https://images.unsplash.com/photo-1711192702535-eac61a78ecb0?w=800"
+                             alt="Munnar Hills"
+                             class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-3 left-3 bg-primary text-white px-3 py-1 rounded text-xs font-semibold uppercase">
+                            Popular
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-mountain text-primary mr-2"></i> Munnar Hill Retreat
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 4 Days / 3 Nights</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Sep - May</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.9</span>
+                            <span class="text-xs text-gray-400 ml-1">(156 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Immerse in misty tea plantations and breathtaking mountain vistas in Kerala's most beloved hill station</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹7,000 - ₹10,000</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Munnar%20Hill%20Retreat.%20Duration:%204%20Days%20/%203%20Nights,%20Price:%20₹7,000%20-%20₹10,000.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trip Card 3: Valpara – Malakkapara -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60">
+                        <img src="https://backpackersunited.in/_next/image?url=https%3A%2F%2Fbpu-images-v1.s3.eu-north-1.amazonaws.com%2Fuploads%2F1727159993512_Athirapally.jpg&w=3840&q=75"
+                             alt="Valpara"
+                             class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-hiking text-primary mr-2"></i> Valpara – Malakkapara
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 1 Day</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Oct - Feb</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.6</span>
+                            <span class="text-xs text-gray-400 ml-1">(92 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Explore stunning viewpoints and verdant hills on this exciting adventure through Valpara</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹999</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Valpara%20–%20Malakkapara.%20Duration:%201%20Day,%20Price:%20₹999.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trip Card 4: Alleppey Backwaters Cruise (NEW) -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60 relative">
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800"
+                             alt="Alleppey Backwaters"
+                             class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-3 left-3 bg-primary text-white px-3 py-1 rounded text-xs font-semibold uppercase">
+                            Popular
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-water text-primary mr-2"></i> Alleppey Backwaters Cruise
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 2 Days / 1 Night</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Nov - Mar</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.8</span>
+                            <span class="text-xs text-gray-400 ml-1">(134 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Glide through tranquil backwaters on a traditional houseboat, experiencing Kerala's aquatic paradise</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹5,500 - ₹8,000</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Alleppey%20Backwaters%20Cruise.%20Duration:%202%20Days%20/%201%20Night,%20Price:%20₹5,500%20-%20₹8,000.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trip Card 5: Thekkady Wildlife Experience (NEW) -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800"
+                             alt="Thekkady Wildlife"
+                             class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-paw text-primary mr-2"></i> Thekkady Wildlife Experience
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 3 Days / 2 Nights</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Oct - Apr</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.7</span>
+                            <span class="text-xs text-gray-400 ml-1">(108 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Encounter exotic wildlife at Periyar Tiger Reserve and explore spice plantations in Thekkady</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹6,500 - ₹9,000</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Thekkady%20Wildlife%20Experience.%20Duration:%203%20Days%20/%202%20Nights,%20Price:%20₹6,500%20-%20₹9,000.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trip Card 6: Wayanad Hill Adventure (NEW) -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?w=800"
+                             alt="Wayanad"
+                             class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-tree text-primary mr-2"></i> Wayanad Hill Adventure
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 3 Days / 2 Nights</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Sep - May</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.8</span>
+                            <span class="text-xs text-gray-400 ml-1">(145 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Discover cascading waterfalls, ancient caves, and lush coffee estates in pristine Wayanad</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹7,500 - ₹10,500</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Wayanad%20Hill%20Adventure.%20Duration:%203%20Days%20/%202%20Nights,%20Price:%20₹7,500%20-%20₹10,500.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trip Card 7: Kovalam Beach Retreat (NEW) -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800"
+                             alt="Kovalam Beach"
+                             class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-umbrella-beach text-primary mr-2"></i> Kovalam Beach Retreat
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 2 Days / 1 Night</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Oct - Mar</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.6</span>
+                            <span class="text-xs text-gray-400 ml-1">(118 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Relax on golden sands, enjoy Ayurvedic therapies, and witness stunning sunsets at Kovalam</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹4,500 - ₹7,000</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Kovalam%20Beach%20Retreat.%20Duration:%202%20Days%20/%201%20Night,%20Price:%20₹4,500%20-%20₹7,000.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trip Card 8: Kochi Heritage Walk (NEW) -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60 relative">
+                        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800"
+                             alt="Fort Kochi"
+                             class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded text-xs font-semibold uppercase">
+                            New
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-landmark text-primary mr-2"></i> Kochi Heritage Walk
+                        </h3>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span><i class="fas fa-clock mr-1"></i> 1 Day</span>
+                            <span><i class="fas fa-calendar mr-1"></i> Year-round</span>
+                        </div>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-sm font-semibold text-gray-800 ml-2">4.5</span>
+                            <span class="text-xs text-gray-400 ml-1">(76 reviews)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Walk through centuries of history exploring Fort Kochi's colonial architecture and cultural treasures</p>
+                        <div class="text-2xl font-semibold text-primary mb-1">₹1,299</div>
+                        <div class="text-xs text-gray-400 mb-4">per person</div>
+                        <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20interested%20in%20the%20Kochi%20Heritage%20Walk.%20Duration:%201%20Day,%20Price:%20₹1,299.%20Please%20share%20more%20details."
+                           target="_blank"
+                           class="block w-full bg-gray-800 text-white text-center py-3 rounded text-sm font-semibold hover:bg-primary transition-all duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="text-center">
+                <p class="text-base text-gray-600">
+                    <i class="fas fa-info-circle text-primary mr-2"></i>
+                    Looking for a custom package?
+                    <a href="https://wa.me/918921363734?text=Hi%20CASCO!%20I'm%20looking%20for%20a%20custom%20Kerala%20itinerary.%20Can%20we%20discuss%20my%20requirements?"
+                       target="_blank"
+                       class="text-primary underline font-semibold hover:text-primary-dark">
+                        Contact us
+                    </a>
+                    to design your perfect Kerala itinerary.
+                </p>
             </div>
         </div>
     </section>
+
+    <!-- Gallery Section (NEW) -->
+    <section id="gallery" class="py-20 lg:py-24 bg-white">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-10 lg:px-16">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-3">Gallery</div>
+                <h2 class="text-4xl lg:text-5xl text-gray-800 mb-4">Moments from Our Journeys</h2>
+                <p class="text-base text-gray-500 max-w-2xl mx-auto">Explore Kerala through the lens of our travelers</p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Gallery images -->
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(0)">
+                    <img src="/Assets/beauty/anand-s-CtqSoMZY7c8-unsplash.jpg" alt="Kerala Gallery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(1)">
+                    <img src="/Assets/beauty/gaurav-kumar-33Z4FsBTiAY-unsplash.jpg" alt="Kerala Gallery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(2)">
+                    <img src="/Assets/beauty/manyu-varma-ef3A5EDR7Jk-unsplash.jpg" alt="Kerala Gallery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(3)">
+                    <img src="/Assets/beauty/philip-liju-srvtMQSWDhE-unsplash.jpg" alt="Kerala Gallery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(4)">
+                    <img src="/Assets/beauty/praswin-prakashan-SVG2gTIudU-unsplash.jpg" alt="Kerala Gallery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(5)">
+                    <img src="/Assets/beauty/sourav-satpati-eZYBbfu7v8A-unsplash.jpg" alt="Kerala Gallery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(6)">
+                    <img src="/Assets/beauty/sreehari-devadas-nZu8lzfVFw4-unsplash.jpg" alt="Kerala Gallery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(7)">
+                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800" alt="Houseboat" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(8)">
+                    <img src="https://images.unsplash.com/photo-1711192702535-eac61a78ecb0?w=800" alt="Tea Plantation" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(9)">
+                    <img src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800" alt="Wildlife" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(10)">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800" alt="Beach" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded cursor-pointer hover:opacity-90 transition-all duration-300" onclick="openLightbox(11)">
+                    <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800" alt="Fort Kochi" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightboxOnOutside(event)">
+        <span class="lightbox-controls lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </span>
+        <span class="lightbox-controls lightbox-prev" onclick="previousImage(event)">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+        <span class="lightbox-controls lightbox-next" onclick="nextImage(event)">
+            <i class="fas fa-chevron-right"></i>
+        </span>
+        <img id="lightboxImage" class="lightbox-image" src="" alt="Gallery Image">
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
 
     <!-- Vehicles Section -->
-    <section id="vehicles" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-4xl font-bold text-primary mb-4"><i class="fas fa-bus mr-2"></i> Our Fleet</h2>
-            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg">Modern, well-maintained vehicles for your comfortable journey</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Vehicle Card 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in border border-gray-200">
-                    <div class="overflow-hidden h-52">
-                        <img src="/Assets/WhatsApp Image 2025-10-16 at 13.26.53_a6a94255.jpg" class="w-full h-full object-cover img-zoom" alt="Marco Polo Bus">
-                    </div>
-                    <div class="p-6">
-                        <h5 class="text-xl font-bold text-gray-800 mb-3"><i class="fas fa-bus mr-2"></i> Marco Polo 30-Seater</h5>
-                        <p class="text-gray-600 mb-4">Ideal for large group tours and corporate outings.</p>
-                        <ul class="space-y-2 text-gray-600 text-sm">
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> AC with individual controls</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Reclining seats & footrest</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> USB charging ports</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Onboard WiFi</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Professional driver & assistant</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Vehicle Card 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in border border-gray-200">
-                    <div class="overflow-hidden h-52">
-                        <img src="/Assets/WhatsApp Image 2025-10-16 at 13.29.12_aecb3e4b.jpg" class="w-full h-full object-cover img-zoom" alt="12-Seater Van">
-                    </div>
-                    <div class="p-6">
-                        <h5 class="text-xl font-bold text-gray-800 mb-3"><i class="fas fa-car mr-2"></i> 12-Seater Van</h5>
-                        <p class="text-gray-600 mb-4">Perfect for family vacations and medium-sized groups.</p>
-                        <ul class="space-y-2 text-gray-600 text-sm">
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Air-conditioned comfort</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Extra legroom & storage</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Premium upholstery</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> First aid kit on board</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> GPS enabled & insured</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Vehicle Card 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in border border-gray-200">
-                    <div class="overflow-hidden h-52">
-                        <img src="/Assets/WhatsApp Image 2025-10-16 at 13.29.50_50427d0d.jpg" class="w-full h-full object-cover img-zoom" alt="Maruti Suzuki Ertiga">
-                    </div>
-                    <div class="p-6">
-                        <h5 class="text-xl font-bold text-gray-800 mb-3"><i class="fas fa-taxi mr-2"></i> Maruti Suzuki Ertiga</h5>
-                        <p class="text-gray-600 mb-4">Compact and efficient for small groups and city transfers.</p>
-                        <ul class="space-y-2 text-gray-600 text-sm">
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Fuel-efficient & eco-friendly</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Modern safety features</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Day or hourly rentals available</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Suitable for narrow city roads</li>
-                            <li class="flex items-start"><span class="text-primary font-bold mr-2">•</span> Competitively priced</li>
-                        </ul>
-                    </div>
-                </div>
+    <section id="vehicles" class="py-20 lg:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-3">Our Fleet</div>
+                <h2 class="text-4xl lg:text-5xl text-gray-800 mb-4">Travel in Comfort & Style</h2>
+                <p class="text-base text-gray-500 max-w-2xl mx-auto">Modern, well-maintained vehicles for every journey</p>
             </div>
-            
-            <div class="text-center mt-12">
-                <p class="text-gray-600"><strong>All vehicles undergo regular maintenance and safety inspections.</strong> We prioritize your safety above all.</p>
+
+            <!-- Vehicle Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+
+                <!-- Vehicle Card 1: Marco Polo 30-Seater -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60 relative">
+                        <img src="/Assets/WhatsApp Image 2025-10-16 at 13.26.53_a6a94255.jpg"
+                             alt="Marco Polo Bus"
+                             class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-3 right-3 bg-primary text-white px-3 py-2 rounded text-xs font-semibold">
+                            30 Seats
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-bus text-primary mr-2"></i> Marco Polo 30-Seater
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed">Perfect for large groups, corporate outings, and pilgrimages</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Fully air-conditioned with individual controls</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Reclining seats with ample legroom</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>USB charging ports at every seat</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Onboard WiFi connectivity</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Professional driver & assistant</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Luggage storage compartment</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>First aid kit & fire extinguisher</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2: 12-Seater Tempo Traveller -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60 relative">
+                        <img src="/Assets/WhatsApp Image 2025-10-16 at 13.29.12_aecb3e4b.jpg"
+                             alt="12-Seater Van"
+                             class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-3 right-3 bg-primary text-white px-3 py-2 rounded text-xs font-semibold">
+                            12 Seats
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-van-shuttle text-primary mr-2"></i> 12-Seater Tempo Traveller
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed">Ideal for family vacations and medium-sized groups</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Air-conditioned comfort</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Push-back seats with extra legroom</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Premium upholstery</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Music system & entertainment</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>GPS tracking enabled</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Insured & regularly serviced</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>First aid kit onboard</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3: Maruti Suzuki Ertiga -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="overflow-hidden h-60 relative">
+                        <img src="/Assets/WhatsApp Image 2025-10-16 at 13.29.50_50427d0d.jpg"
+                             alt="Maruti Suzuki Ertiga"
+                             class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-3 right-3 bg-primary text-white px-3 py-2 rounded text-xs font-semibold">
+                            6 Seats
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-car text-primary mr-2"></i> Maruti Suzuki Ertiga
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed">Compact and efficient for small groups and city transfers</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Fuel-efficient & eco-friendly</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Modern safety features (ABS, airbags)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Air conditioning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Suitable for narrow roads</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Day or hourly rentals available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Affordable pricing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                                <span>Well-maintained & clean</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Notice -->
+            <div class="text-center">
+                <p class="text-sm text-gray-600">
+                    <i class="fas fa-shield-alt text-primary mr-2"></i>
+                    All vehicles undergo regular maintenance and safety inspections. Your safety is our priority.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="relative py-20 text-white overflow-hidden bg-gradient-to-br from-primary-dark to-primary-light">
+    <section id="contact" class="relative py-20 lg:py-24 text-white overflow-hidden bg-gradient-to-br from-primary-dark to-primary">
         <!-- Background Pattern -->
         <div class="absolute top-0 left-0 w-full h-full opacity-5" style="background: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
 
-        <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16 relative z-10">
+            <!-- Section Header -->
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4"><i class="fas fa-phone mr-2"></i> Contact Us</h2>
-                <p class="text-lg text-white/75 max-w-3xl mx-auto">We'd love to hear from you — reach out anytime for bookings, queries, or travel guidance.</p>
+                <h2 class="text-4xl lg:text-5xl mb-4">Get in Touch</h2>
+                <p class="text-base text-white/90 max-w-2xl mx-auto">We're here to help plan your perfect Kerala journey</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Address Card -->
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center hover:bg-white/20 hover:-translate-y-2 transition-all duration-300">
+            <!-- Contact Cards Grid -->
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+                <!-- Location Card -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                     <i class="fas fa-map-marker-alt text-5xl mb-4"></i>
-                    <h5 class="text-xl font-semibold mb-4">Our Address</h5>
-                    <p class="text-sm opacity-90">Irumpanam, Thripunithura,<br>Ernakulam, Kerala 682306,<br>India</p>
+                    <h3 class="text-xl font-semibold mb-3">Visit Us</h3>
+                    <p class="text-base text-white/90 leading-relaxed">
+                        CASCO Tours & Travels<br>
+                        Irumpanam, Thripunithura<br>
+                        Ernakulam, Kerala 682306<br>
+                        India
+                    </p>
                 </div>
 
                 <!-- Phone Card -->
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center hover:bg-white/20 hover:-translate-y-2 transition-all duration-300">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                     <i class="fas fa-phone text-5xl mb-4"></i>
-                    <h5 class="text-xl font-semibold mb-4">Call Us</h5>
-                    <p class="text-sm opacity-90"><strong>+91 89213 63734</strong><br><strong>+91 79077 04073</strong><br><strong>+91 79079 69209</strong><br><small>7 AM – 10 PM, Daily</small></p>
+                    <h3 class="text-xl font-semibold mb-3">Call Us</h3>
+                    <p class="text-base text-white/90 leading-relaxed">
+                        <a href="tel:+918921363734" class="font-semibold hover:underline">+91 89213 63734</a><br>
+                        <a href="tel:+917907704073" class="hover:underline">+91 79077 04073</a><br>
+                        <a href="tel:+917907969209" class="hover:underline">+91 79079 69209</a><br>
+                        <span class="block mt-3 border-t border-white/20 pt-3 text-sm">Open Daily: 7 AM – 10 PM</span>
+                    </p>
                 </div>
 
                 <!-- Email & WhatsApp Card -->
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center hover:bg-white/20 hover:-translate-y-2 transition-all duration-300">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                     <i class="fas fa-envelope text-5xl mb-4"></i>
-                    <h5 class="text-xl font-semibold mb-4">Email & WhatsApp</h5>
-                    <p class="text-sm opacity-90"><strong>info@cascotours.com</strong><br><strong>+91 89213 63734</strong><br><small>(WhatsApp Available)</small></p>
+                    <h3 class="text-xl font-semibold mb-3">Message Us</h3>
+                    <p class="text-base text-white/90 leading-relaxed">
+                        <a href="mailto:info@cascotours.com" class="font-semibold hover:underline">info@cascotours.com</a><br>
+                        <span class="block my-3 border-t border-white/20 pt-3">
+                            <a href="https://wa.me/918921363734" target="_blank" class="inline-flex items-center hover:underline">
+                                <i class="fab fa-whatsapp mr-2"></i> +91 89213 63734
+                            </a>
+                        </span>
+                        <span class="text-sm">Quick replies on WhatsApp</span>
+                    </p>
                 </div>
+
             </div>
 
-            <div class="text-center mt-12 opacity-75 text-sm">
-                <i class="fas fa-heart text-yellow-300"></i> Crafted with care by CASCO Tours & Travels
+            <!-- Bottom CTA -->
+            <div class="text-center">
+                <a href="https://wa.me/918921363734?text=Hello%20CASCO%20Tours!%20I'd%20like%20to%20inquire%20about%20your%20services."
+                   target="_blank"
+                   class="inline-flex items-center bg-white text-primary px-10 py-4 rounded-lg text-base font-semibold hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                    <i class="fab fa-whatsapp mr-3 text-xl"></i> Chat with Us on WhatsApp
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Feedback/Testimonials Section -->
-    <section id="feedback" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-4xl font-bold text-primary mb-4"><i class="fas fa-star mr-2"></i> Client Reviews & Testimonials</h2>
-            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg">Read what our satisfied customers have to say</p>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-3">Testimonials</div>
+                <h2 class="text-4xl lg:text-5xl text-gray-800 mb-4">What Our Travelers Say</h2>
+                <p class="text-base text-gray-500 max-w-2xl mx-auto">Real experiences from real customers</p>
+            </div>
+
+            <!-- Testimonial Cards Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+
                 <!-- Testimonial 1 -->
-                <div class="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl p-8 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 fade-in">
-                    <div class="text-yellow-400 text-center mb-4 text-xl">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-7 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 fade-in">
+                    <i class="fas fa-quote-left text-4xl text-gray-200 mb-4"></i>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <blockquote class="mb-6">
-                        <p class="text-gray-600 italic text-sm leading-relaxed">"CASCO made our family trip to Munnar absolutely unforgettable! The drivers were courteous, vehicles were spotless, and the itinerary was perfectly planned. Highly recommended!"</p>
-                    </blockquote>
+                    <p class="text-base text-gray-600 italic mb-5 leading-relaxed">CASCO made our family trip to Munnar absolutely unforgettable! The drivers were courteous, vehicles were spotless, and every detail was perfectly planned. Highly recommended!</p>
                     <div class="border-t border-gray-200 pt-4">
-                        <div class="flex items-center justify-between">
-                            <div class="font-semibold text-primary">Rajesh K.</div>
-                            <div class="text-gray-500 text-xs italic">Kochi | Munnar Trip (April 2024)</div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-user-circle text-3xl text-primary"></i>
+                            <div>
+                                <div class="font-semibold text-gray-800">Rajesh K.</div>
+                                <div class="text-xs text-gray-400">Kochi • Munnar Trip • April 2024</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl p-8 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 fade-in">
-                    <div class="text-yellow-400 text-center mb-4 text-xl">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-7 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 fade-in">
+                    <i class="fas fa-quote-left text-4xl text-gray-200 mb-4"></i>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <blockquote class="mb-6">
-                        <p class="text-gray-600 italic text-sm leading-relaxed">"Professional team, excellent communication, and spotless vehicles. We booked a group tour for 25 people and everything went smoothly. Great value for money!"</p>
-                    </blockquote>
+                    <p class="text-base text-gray-600 italic mb-5 leading-relaxed">Professional team, excellent communication, and pristine vehicles. We booked for 25 people and everything went smoothly from start to finish. Outstanding value!</p>
                     <div class="border-t border-gray-200 pt-4">
-                        <div class="flex items-center justify-between">
-                            <div class="font-semibold text-primary">Priya S.</div>
-                            <div class="text-gray-500 text-xs italic">Trivandrum | Group Tour (March 2024)</div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-user-circle text-3xl text-primary"></i>
+                            <div>
+                                <div class="font-semibold text-gray-800">Priya S.</div>
+                                <div class="text-xs text-gray-400">Trivandrum • Group Tour • March 2024</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl p-8 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 fade-in">
-                    <div class="text-yellow-400 text-center mb-4 text-xl">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-7 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 fade-in">
+                    <i class="fas fa-quote-left text-4xl text-gray-200 mb-4"></i>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <blockquote class="mb-6">
-                        <p class="text-gray-600 italic text-sm leading-relaxed">"Amazing Guruvayoor trip! Everything was perfectly organized, and the guides made the experience unforgettable. Highly recommend this team for a hassle-free temple and cultural visit."</p>
-                    </blockquote>
+                    <p class="text-base text-gray-600 italic mb-5 leading-relaxed">The Guruvayoor trip was perfectly organized! Our guide made the experience truly special with local insights and stories. CASCO delivers hassle-free temple visits.</p>
                     <div class="border-t border-gray-200 pt-4">
-                        <div class="flex items-center justify-between">
-                            <div class="font-semibold text-primary">Arjun</div>
-                            <div class="text-gray-500 text-xs italic">Guruvayoor Trip</div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-user-circle text-3xl text-primary"></i>
+                            <div>
+                                <div class="font-semibold text-gray-800">Arjun M.</div>
+                                <div class="text-xs text-gray-400">Thrissur • Guruvayoor Trip • February 2024</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <p class="text-gray-600 text-sm"><i class="fas fa-shield-alt text-primary mr-1"></i> All reviews are from verified customers. <strong class="text-primary">Average Rating: 4.8/5 Stars</strong> | <strong class="text-primary">500+ Happy Customers</strong></p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="introduction" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-4xl font-bold text-primary mb-4"><i class="fas fa-lightbulb mr-2"></i> Why Choose CASCO?</h2>
-            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg">At CASCO Tours and Travels, we don't just provide transportation—we create memories. Based in the heart of Ernakulam, we've been serving Kerala's finest travel experiences with dedication and professionalism.</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center fade-in">
-                    <div class="text-6xl text-green-600 mb-4 hover:scale-110 hover:rotate-6 transition-all duration-300">
-                        <i class="fas fa-award"></i>
+            </div>
+
+            <!-- Bottom Stats -->
+            <div class="bg-primary-light rounded-lg p-6">
+                <div class="flex flex-col sm:flex-row justify-around items-center gap-6 text-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-star text-3xl text-primary"></i>
+                        <span class="text-sm font-semibold text-gray-800">4.8/5 Average Rating</span>
                     </div>
-                    <div class="text-gray-800 font-semibold text-lg mb-2">Years of Experience</div>
-                    <p class="text-gray-600 text-sm">Trusted by thousands of families and corporate groups</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="text-6xl text-green-600 mb-4 hover:scale-110 hover:rotate-6 transition-all duration-300">
-                        <i class="fas fa-check-circle"></i>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-users text-3xl text-primary"></i>
+                        <span class="text-sm font-semibold text-gray-800">10,000+ Happy Customers</span>
                     </div>
-                    <div class="text-gray-800 font-semibold text-lg mb-2">Professional Drivers</div>
-                    <p class="text-gray-600 text-sm">Certified, experienced, and courteous staff</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="text-6xl text-primary mb-4 hover:scale-110 hover:rotate-6 transition-all duration-300">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-shield-check text-3xl text-primary"></i>
+                        <span class="text-sm font-semibold text-gray-800">Verified Reviews</span>
                     </div>
-                    <div class="text-gray-800 font-semibold text-lg mb-2">Safe & Comfortable</div>
-                    <p class="text-gray-600 text-sm">Well-maintained, insured vehicles for your peace of mind</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-16 relative">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-green-500 to-primary"></div>
-        
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+    <footer class="bg-gray-900 text-white py-16 border-t-2 border-primary">
+        <div class="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16">
+            <!-- Footer Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+
                 <!-- Company Info -->
                 <div>
-                    <h6 class="text-lg font-semibold mb-4 relative pb-2">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
                         <i class="fas fa-bus mr-2"></i> CASCO Tours & Travels
-                        <div class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary"></div>
-                    </h6>
-                    <p class="text-gray-300 text-sm leading-relaxed mb-4">Your trusted travel partner in Kerala since 2020. Creating unforgettable memories, one journey at a time. Based in Irumpanam, Thripunithura, we specialize in safe, comfortable, and personalized travel experiences.</p>
-                    <div class="flex gap-4 mt-4">
-                        <a href="https://www.instagram.com/cascotours" target="_blank" class="text-white hover:text-primary hover:scale-125 hover:rotate-12 transition-all duration-300 text-xl"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/918921363734" target="_blank" class="text-white hover:text-primary hover:scale-125 hover:rotate-12 transition-all duration-300 text-xl"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/cascotours" target="_blank" class="text-white hover:text-primary hover:scale-125 hover:rotate-12 transition-all duration-300 text-xl"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/cascotours" target="_blank" class="text-white hover:text-primary hover:scale-125 hover:rotate-12 transition-all duration-300 text-xl"><i class="fab fa-twitter"></i></a>
+                    </h3>
+                    <p class="text-sm text-gray-400 mb-5 leading-relaxed">
+                        Your trusted travel partner in Kerala since 2020. Creating unforgettable memories, one journey at a time.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/cascotours" target="_blank" rel="noopener noreferrer"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/918921363734" target="_blank" rel="noopener noreferrer"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/cascotours" target="_blank" rel="noopener noreferrer"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="mailto:info@cascotours.com"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
                 <div>
-                    <h6 class="text-lg font-semibold mb-4 relative pb-2">
-                        Quick Links
-                        <div class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary"></div>
-                    </h6>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
-                        <li><a href="#trips" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Our Trips</a></li>
-                        <li><a href="#vehicles" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Fleet</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> About Us</a></li>
-                        <li><a href="#feedback" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Reviews</a></li>
+                    <h3 class="text-base font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary hover:pl-1 transition-all duration-300 inline-block"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                        <li><a href="#trips" class="text-gray-400 hover:text-primary hover:pl-1 transition-all duration-300 inline-block"><i class="fas fa-chevron-right mr-2 text-xs"></i> Our Trips</a></li>
+                        <li><a href="#vehicles" class="text-gray-400 hover:text-primary hover:pl-1 transition-all duration-300 inline-block"><i class="fas fa-chevron-right mr-2 text-xs"></i> Fleet</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-primary hover:pl-1 transition-all duration-300 inline-block"><i class="fas fa-chevron-right mr-2 text-xs"></i> Gallery</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary hover:pl-1 transition-all duration-300 inline-block"><i class="fas fa-chevron-right mr-2 text-xs"></i> About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-primary hover:pl-1 transition-all duration-300 inline-block"><i class="fas fa-chevron-right mr-2 text-xs"></i> Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary hover:pl-1 transition-all duration-300 inline-block"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
                     </ul>
                 </div>
 
                 <!-- Services -->
                 <div>
-                    <h6 class="text-lg font-semibold mb-4 relative pb-2">
-                        Our Services
-                        <div class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary"></div>
-                    </h6>
-                    <ul class="space-y-2">
-                        <li><a href="#trips" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Tour Packages</a></li>
-                        <li><a href="#vehicles" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Vehicle Rentals</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Custom Itineraries</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Corporate Travel</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-primary transition-colors duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Airport Transfers</a></li>
+                    <h3 class="text-base font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-chevron-right mr-2 text-xs"></i> Tour Packages</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-xs"></i> Vehicle Rentals</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-xs"></i> Custom Itineraries</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-xs"></i> Corporate Travel</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-xs"></i> Airport Transfers</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-xs"></i> Pilgrimage Tours</li>
+                        <li><i class="fas fa-chevron-right mr-2 text-xs"></i> Adventure Trips</li>
                     </ul>
                 </div>
 
-                <!-- Newsletter -->
+                <!-- Stay Updated -->
                 <div>
-                    <h6 class="text-lg font-semibold mb-4 relative pb-2">
-                        Stay Connected
-                        <div class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary"></div>
-                    </h6>
-                    <p class="text-gray-300 text-sm mb-4">Subscribe for exclusive offers, travel tips, and Kerala adventures.</p>
-                    <form class="bg-white/10 backdrop-blur-md rounded-full p-1 flex" onsubmit="handleNewsletter(event)">
-                        <input type="email" class="flex-1 bg-white/90 text-gray-800 px-4 py-2 rounded-l-full border-0 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your email" required>
-                        <button type="submit" class="bg-primary hover:bg-primary-dark px-6 py-2 rounded-r-full transition-colors duration-300">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                    <small class="block mt-2 text-gray-400 text-xs">We respect your privacy. Unsubscribe anytime.</small>
+                    <h3 class="text-base font-semibold mb-4">Stay Updated</h3>
+                    <p class="text-sm text-gray-400 mb-5 leading-relaxed">
+                        Follow us on social media for travel tips, special offers, and Kerala adventures.
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <div>
+                            <a href="tel:+918921363734" class="text-primary font-semibold hover:underline">+91 89213 63734</a>
+                        </div>
+                        <div>
+                            <a href="mailto:info@cascotours.com" class="text-primary hover:underline">info@cascotours.com</a>
+                        </div>
+                        <div class="text-gray-400 text-xs mt-3">
+                            Open Daily: 7 AM – 10 PM
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
             <!-- Footer Bottom -->
             <div class="border-t border-white/10 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-gray-400 text-sm">&copy; 2025 CASCO Tours and Travels. All rights reserved. | <a href="#privacy" class="text-primary hover:underline">Privacy Policy</a> | <a href="#terms" class="text-primary hover:underline">Terms of Service</a></p>
-                    <p class="text-gray-400 text-sm">Designed with <i class="fas fa-heart text-red-500"></i> in Kerala</p>
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+                    <p>&copy; 2025 CASCO Tours and Travels. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                        <span>|</span>
+                        <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- JavaScript -->
     <script>
+          const navbar = document.getElementById('navbar');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBtn = document.getElementById('menuBtn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      navbar.classList.add('bg-white', 'shadow-md');
+      navbar.classList.remove('bg-transparent');
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.replace('text-white', 'text-gray-800'));
+    } else {
+      navbar.classList.add('bg-transparent');
+      navbar.classList.remove('bg-white', 'shadow-md');
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.replace('text-gray-800', 'text-white'));
+    }
+  });
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
         // Mobile Menu Toggle
         function toggleMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('show');
+            }
         }
 
-        // Typing Effect
+        // Typed.js Initialization
         document.addEventListener("DOMContentLoaded", function() {
             new Typed("#typed-text", {
                 strings: [
-                    "Explore the Beauty of <span class='text-yellow-300'>Kerala</span>",
-                    "Discover Paradise with <span class='text-yellow-300'>CASCO</span>",
-                    "Journey Begins with <span class='text-yellow-300'>CASCO</span>"
+                    "Discover Kerala's Hidden Beauty",
+                    "Your Journey Begins Here",
+                    "Experience God's Own Country"
                 ],
                 typeSpeed: 60,
                 backSpeed: 35,
@@ -671,15 +1273,15 @@
 
         // Background Slideshow
         let slides = document.querySelectorAll("#bg-slideshow .slide");
-        let current = 0;
+        let currentSlide = 0;
 
         function showNextSlide() {
-            slides[current].style.opacity = 0;
-            current = (current + 1) % slides.length;
-            slides[current].style.opacity = 1;
+            slides[currentSlide].style.opacity = 0;
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.opacity = 1;
         }
 
-        setInterval(showNextSlide, 4000);
+        setInterval(showNextSlide, 5000);
 
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -687,33 +1289,45 @@
                 const targetId = this.getAttribute('href');
                 if (targetId && targetId !== '#' && document.querySelector(targetId)) {
                     e.preventDefault();
-                    
-                    // Close mobile menu
+
+                    // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobileMenu');
                     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
-                    
+
                     const target = document.querySelector(targetId);
                     const offset = 80;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    
-                    setTimeout(() => {
-                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    }, 150);
+
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        // Navbar Scroll Shadow
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     const fadeIns = entry.target.querySelectorAll('.fade-in');
                     fadeIns.forEach((el, index) => {
-                        setTimeout(() => el.classList.add('visible'), index * 200);
+                        setTimeout(() => el.classList.add('visible'), index * 150);
                     });
                 }
             });
@@ -721,16 +1335,82 @@
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-        // Hero Section Animation
+        // Hero Section Animation on Load
         window.addEventListener('load', () => {
             document.getElementById('home').classList.add('visible');
+            // Ensure no initial scroll on load
+            window.scrollTo(0, 0);
         });
 
-        // Newsletter Handler
-        function handleNewsletter(e) {
-            e.preventDefault();
-            alert('Thank you for subscribing! We\'ll send you updates soon.');
-            e.target.reset();
+        // Gallery Lightbox
+        const galleryImages = [
+            "/Assets/beauty/anand-s-CtqSoMZY7c8-unsplash.jpg",
+            "/Assets/beauty/gaurav-kumar-33Z4FsBTiAY-unsplash.jpg",
+            "/Assets/beauty/manyu-varma-ef3A5EDR7Jk-unsplash.jpg",
+            "/Assets/beauty/philip-liju-srvtMQSWDhE-unsplash.jpg",
+            "/Assets/beauty/praswin-prakashan-SVG2gTIudU-unsplash.jpg",
+            "/Assets/beauty/sourav-satpati-eZYBbfu7v8A-unsplash.jpg",
+            "/Assets/beauty/sreehari-devadas-nZu8lzfVFw4-unsplash.jpg",
+            "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800",
+            "https://images.unsplash.com/photo-1711192702535-eac61a78ecb0?w=800",
+            "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800",
+            "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800"
+        ];
+
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+
+            lightbox.classList.add('active');
+            lightboxImage.src = galleryImages[index];
+            lightboxCounter.textContent = `${index + 1} / ${galleryImages.length}`;
+
+            document.body.style.overflow = 'hidden';
+
+            // Add keyboard event listeners
+            document.addEventListener('keydown', handleLightboxKeyboard);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.removeEventListener('keydown', handleLightboxKeyboard);
+        }
+
+        function nextImage(event) {
+            if (event) event.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+            document.getElementById('lightboxImage').src = galleryImages[currentLightboxIndex];
+            document.getElementById('lightboxCounter').textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+        }
+
+        function previousImage(event) {
+            if (event) event.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightboxImage').src = galleryImages[currentLightboxIndex];
+            document.getElementById('lightboxCounter').textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+        }
+
+        function closeLightboxOnOutside(event) {
+            if (event.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        }
+
+        function handleLightboxKeyboard(event) {
+            if (event.key === 'ArrowRight') {
+                nextImage();
+            } else if (event.key === 'ArrowLeft') {
+                previousImage();
+            } else if (event.key === 'Escape') {
+                closeLightbox();
+            }
         }
     </script>
 </body>
